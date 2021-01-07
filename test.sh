@@ -17,6 +17,6 @@ assert(){
 }
 
 assert 0 0
-assert $1 $2
+assert 42 42
 
 echo "OK"
