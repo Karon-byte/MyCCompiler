@@ -1,4 +1,12 @@
 #!/bin/bash
+input="$1"
+expected="$2"
+
+if [ "$#" -lt 2 ]; then
+    >&2 echo "The number of argument is not enough"
+    exit 1
+fi
+
 assert(){
     expected="$1"
     input="$2"
@@ -11,12 +19,11 @@ assert(){
     if [ "$actual" = "$expected" ]; then
         echo "$input => $expected"
     else
-        echo "$input => $expected expected, but got $actual"
+        echo "$expected expected, but got $actual"
         exit 1
     fi
 }
 
-assert 0 0
-assert 42 42
+assert $input $expected
 
 echo "OK"
